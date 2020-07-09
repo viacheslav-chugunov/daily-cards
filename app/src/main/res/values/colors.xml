@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#007777</color>
+    <color name="colorPrimaryDark">#005555</color>
+    <color name="colorAccent">#83abc0</color>
+    <color name="toolbar_title_color">#FFFFFF</color>
+    <color name="colorWindowBackground">#e7f3f3</color>
+    <color name="small_accuracy_percent">#ffe5e5</color>
+    <color name="medium_accuracy_percent">#ffffe5</color>
+    <color name="high_accuracy_percent">#e5f9ec</color>
+    <color name="wrong_user_answer">#ffe5e5</color>
+    <color name="right_user_answer">#e5f9ec</color>
+    <color name="list_item_1">#b2d6d6</color>
+    <color name="list_item_2">#99c8c8</color>
+    <color name="attention">#e71b1b</color>
+    <color name="text_color">#4F4F4F</color>
+</resources>

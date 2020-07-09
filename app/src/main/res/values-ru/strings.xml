@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Daily Cards</string>
+    <string name="my_cards_tab">Мои карточки</string>
+    <string name="all_tab">Все</string>
+    <string name="title_hint">Название</string>
+    <string name="description_hint">Описание</string>
+    <string name="question_hint">Слово</string>
+    <string name="answer_hint">Перевод</string>
+    <string name="existing_question">Слово уже существует</string>
+    <string name="blank_question">Слово или перевод пусты</string>
+    <string name="blank_title">Заполните название</string>
+    <string name="blank_card_content">Добавьте минимум 2 вопроса</string>
+    <string name="never_passed">Ещё не пройдено</string>
+    <string name="reversed_mode">Обратный</string>
+    <string name="update">Обновить</string>
+    <string name="remove">Удалить</string>
+    <string name="existing_title">Карточка с таким названием уже существует</string>
+    <string name="result">Результат</string>
+    <string name="user_passed_card">Карточка пройдена :)</string>
+    <string name="user_dont_passed_card">Карточка не пройдена :(</string>
+    <string name="answers">Ответы</string>
+    <string name="store_tab">Хранилище</string>
+    <string name="card_creation">Создание новой карточки</string>
+    <string name="card_updating">Обновление карточки</string>
+</resources>

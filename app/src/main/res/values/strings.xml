@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Daily Cards</string>
+    <string name="my_cards_tab">My cards</string>
+    <string name="all_tab">All</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Description</string>
+    <string name="question_hint">Word</string>
+    <string name="answer_hint">Translation</string>
+    <string name="existing_question">This question is already exists</string>
+    <string name="blank_question">Question or answer is blank</string>
+    <string name="blank_title">Title is blank</string>
+    <string name="blank_card_content">Add two questions at least</string>
+    <string name="never_passed">Never passed yet</string>
+    <string name="reversed_mode">Reversed mode</string>
+    <string name="update">Update</string>
+    <string name="remove">Remove</string>
+    <string name="existing_title">This card is already exists</string>
+    <string name="result">Result</string>
+    <string name="user_passed_card">You passed card!</string>
+    <string name="user_dont_passed_card">Bad result, try again</string>
+    <string name="answers">Answers</string>
+    <string name="store_tab">Store</string>
+    <string name="card_creation">New card creation</string>
+    <string name="card_updating">Card updating</string>
+</resources>

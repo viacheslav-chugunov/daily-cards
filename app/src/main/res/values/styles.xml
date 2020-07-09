@@ -1,0 +1,59 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorWindowBackground</item>
+    </style>
+
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlNormal">@color/toolbar_title_color</item>
+        <item name="titleTextColor">@color/toolbar_title_color</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="BaseText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="SubText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="BaseEditText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="RecyclerViewItemLayout">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <style name="FAB">
+        <item name="android:layout_gravity">end|bottom</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="tint">@color/toolbar_title_color</item>
+    </style>
+
+    <style name="VerticalImageButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:tint">@color/toolbar_title_color</item>
+    </style>
+</resources>

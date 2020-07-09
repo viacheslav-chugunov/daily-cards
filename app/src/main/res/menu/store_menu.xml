@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/reversed"
+        android:orderInCategory="1"
+        android:title="@string/reversed_mode" />
+
+    <item android:id="@+id/answers"
+        android:orderInCategory="2"
+        android:title="@string/answers" />
+</menu>
