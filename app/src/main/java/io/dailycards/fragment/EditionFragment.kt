@@ -34,10 +34,10 @@ class EditionFragment : Fragment() {
         edition_done_button.setOnClickListener { listener?.onClickDoneButton() }
     }
 
-    fun setCardContent(cardContent: List<Pair<String, String>>) {
+    fun setCardContent(cardContent: Collection<Pair<String, String>>) {
         listener?.let {
             (childFragmentManager.findFragmentById(R.id.edition_recycler_view)
-                    as RecyclerViewFragment).setAdapter(QuestionAnswerAdapter(cardContent))
+                    as RecyclerViewFragment).setAdapter(QuestionAnswerAdapter(cardContent.toList()))
         }
     }
 }

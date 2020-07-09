@@ -50,7 +50,7 @@ class DB(val context: Context) {
         dbHelper.close()
     }
 
-    fun insert(title: String, description: String, cardContent: List<Pair<String, String>>,
+    fun insert(title: String, description: String, cardContent: Collection<Pair<String, String>>,
                lastDate: String = context.getString(R.string.never_passed), accuracy: Int = 0, store: Boolean = false) : Boolean {
         if (!contains(TITLE, title)) {
             setMode(Mode.WRITABLE)

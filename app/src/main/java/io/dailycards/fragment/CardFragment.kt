@@ -9,6 +9,12 @@ import android.view.ViewGroup
 import io.dailycards.R
 import io.dailycards.activity.ResultActivity
 import io.dailycards.tools.Extra
+import io.dailycards.tools.SavedState.ALL_ANSWERS
+import io.dailycards.tools.SavedState.CURRENT_QUESTION
+import io.dailycards.tools.SavedState.CURRENT_QUESTIONS_INDEX
+import io.dailycards.tools.SavedState.RIGHT_ANSWER
+import io.dailycards.tools.SavedState.RIGHT_ANSWERS_COUNT
+import io.dailycards.tools.SavedState.USER_ANSWERS
 import io.dailycards.tools.adapter.AnswersAdapter
 import io.dailycards.tools.db.DB
 import io.dailycards.tools.getPossibleAnswers
@@ -37,12 +43,12 @@ open class CardFragment : Fragment(), AnswersAdapter.Listener {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.run {
-            putInt("curQuestionIndex", curQuestionIndex)
-            putString("curQuestion", curQuestion)
-            putString("rightAnswer", rightAnswer)
-            putStringArray("allAnswers", allAnswers.toTypedArray())
-            putInt("rightAnswersCount", rightAnswersCount)
-            putStringArray("userAnswers", userAnswers.toTypedArray())
+            putInt(CURRENT_QUESTIONS_INDEX, curQuestionIndex)
+            putString(CURRENT_QUESTION, curQuestion)
+            putString(RIGHT_ANSWER, rightAnswer)
+            putStringArray(ALL_ANSWERS, allAnswers.toTypedArray())
+            putInt(RIGHT_ANSWERS_COUNT, rightAnswersCount)
+            putStringArray(USER_ANSWERS, userAnswers.toTypedArray())
         }
     }
 
@@ -67,12 +73,12 @@ open class CardFragment : Fragment(), AnswersAdapter.Listener {
 
         val listener = this
         savedInstanceState?.run {
-            curQuestionIndex = getInt("curQuestionIndex")
-            curQuestion = getString("curQuestion")!!
-            rightAnswer = getString("rightAnswer")!!
-            allAnswers = getStringArray("allAnswers")!!.toList()
-            rightAnswersCount = getInt("rightAnswersCount")
-            userAnswers = getStringArray("userAnswers")!!.toMutableList()
+            curQuestionIndex = getInt(CURRENT_QUESTIONS_INDEX)
+            curQuestion = getString(CURRENT_QUESTION)!!
+            rightAnswer = getString(RIGHT_ANSWER)!!
+            allAnswers = getStringArray(ALL_ANSWERS)!!.toList()
+            rightAnswersCount = getInt(RIGHT_ANSWERS_COUNT)
+            userAnswers = getStringArray(USER_ANSWERS)!!.toMutableList()
 
             question_number.text = "${curQuestionIndex + 1} / ${questions.size}"
             question.text = curQuestion

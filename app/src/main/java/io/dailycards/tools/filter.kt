@@ -42,7 +42,7 @@ fun getCardContent(questions: List<String>, answers: List<String>) : List<Pair<S
     return cardContent
 }
 
-fun getQuestionsAnswersPair(cardContent: List<Pair<String, String>>) : Pair<List<String>, List<String>> {
+fun getQuestionsAnswersPair(cardContent: Collection<Pair<String, String>>) : Pair<List<String>, List<String>> {
     val questions = mutableListOf<String>()
     val answers = mutableListOf<String>()
     for (cardContentItem in cardContent) {

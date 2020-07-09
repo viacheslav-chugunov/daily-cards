@@ -3,17 +3,15 @@ package io.dailycards.activity.abs
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import io.dailycards.R
 import io.dailycards.activity.HomeActivity
 import io.dailycards.fragment.EditionFragment
-import io.dailycards.tools.EncodingMode
+import io.dailycards.tools.*
+import io.dailycards.tools.SavedState.ANSWERS
+import io.dailycards.tools.SavedState.QUESTIONS
 import io.dailycards.tools.db.DB
 import io.dailycards.tools.extensions.showToast
-import io.dailycards.tools.getCardContent
-import io.dailycards.tools.getEncodingFilepath
-import io.dailycards.tools.getQuestionsAnswersPair
 import kotlinx.android.synthetic.main.activity_creation.*
 import kotlinx.android.synthetic.main.fragment_edition.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -21,9 +19,18 @@ import java.io.BufferedWriter
 import java.io.OutputStreamWriter
 
 open class EditionActivity : AppCompatActivity(), EditionFragment.Listener {
-    protected val cardContent = mutableListOf<Pair<String, String>>()
+    protected val cardContent = mutableSetOf<Pair<String, String>>()
     private lateinit var editionFragment: EditionFragment
     protected var actionBarTitle = ""
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.run {
+            val (questions, answers) = getQuestionsAnswersPair(cardContent)
+            putStringArray(QUESTIONS, questions.toTypedArray())
+            putStringArray(ANSWERS, answers.toTypedArray())
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +38,10 @@ open class EditionActivity : AppCompatActivity(), EditionFragment.Listener {
         setSupportActionBar(toolbar.apply { title = actionBarTitle })
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         editionFragment = edition_fragment as EditionFragment
+        savedInstanceState?.let {
+            cardContent.addAll(getCardContent(it.getStringArray(QUESTIONS)!!.toList(),
+                it.getStringArray(ANSWERS)!!.toList()))
+        }
     }
 
     override fun onStart() {
