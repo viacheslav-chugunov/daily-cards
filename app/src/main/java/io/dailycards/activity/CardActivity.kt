@@ -28,7 +28,6 @@ open class CardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card)
         id = intent.extras?.getInt(Extra.ID) ?: -1
         Query(this).run {
-            println(id)
             setSupportActionBar(toolbar.apply { title = getStringValueFromColumn(id, DB.TITLE) })
             close()
         }
