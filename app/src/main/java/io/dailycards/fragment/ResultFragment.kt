@@ -23,13 +23,14 @@ class ResultFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        right_answers_count.text = "$rightAnswersCount / ${userAnswers.size}"
         (childFragmentManager.findFragmentById(R.id.recycler_fragment) as RecyclerViewFragment)
             .setAdapter(ResultCardAdapter(userAnswers, getCardContent(context!!, ID), isReversed))
         val count = if (userAnswers.isNotEmpty()) userAnswers.size else 1
-        pass_status.setText(when (rightAnswersCount * 100 / count) {
+        val accuracy = rightAnswersCount * 100 / count
+        pass_status.setText(when (accuracy) {
             in 0..85 -> R.string.user_dont_passed_card
             else -> R.string.user_passed_card
         })
+        right_answers_count.text = "$accuracy%"
     }
 }
