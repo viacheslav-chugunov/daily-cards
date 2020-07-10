@@ -5,15 +5,19 @@ import android.database.Cursor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import io.dailycards.R
 import io.dailycards.tools.db.DB
+import io.dailycards.tools.getCurrentDate
+import io.dailycards.tools.hasAttention
 import io.dailycards.tools.inDaily
 import io.dailycards.tools.inStore
 
-class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
+class CardAdapter(private val cursor: Cursor, private val mode: Mode = Mode.USER_ALL) :
     RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     interface Listener {
@@ -79,6 +83,13 @@ class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
             viewItem.findViewById<TextView>(R.id.accuracy).text = "$accuracy%"
             viewItem.findViewById<TextView>(R.id.last_pass).text = lastDate
         }
+
+        fun setAttention() {
+            viewItem.findViewById<ImageView>(R.id.attention_char).run {
+                setImageResource(R.drawable.baseline_priority_high_black_18dp)
+                setColorFilter(ContextCompat.getColor(context, R.color.attention))
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -94,6 +105,7 @@ class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
         val card = cards[pos]
         holder.run {
             insertView(card.title, card.description, card.accuracy.toInt(), card.lastDate)
+            if (hasAttention(cursor.apply { moveToPosition(pos) } )) setAttention()
             viewItem.setOnClickListener { listener?.onItemClicked(card.id) }
         }
     }

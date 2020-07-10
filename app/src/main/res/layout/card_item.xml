@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/RecyclerViewItemLayout"
     android:background="@color/text_color"
     android:layout_width="match_parent"
@@ -13,11 +14,23 @@
         android:layout_margin="1dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title"
-            style="@style/BaseText"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/BaseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/attention_char"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                style="@style/BaseMargin" />
+        </FrameLayout>
 
         <TextView
             android:id="@+id/description"
