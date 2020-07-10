@@ -3,7 +3,7 @@
     <string name="my_cards_tab">My cards</string>
     <string name="all_tab">All</string>
     <string name="title_hint">Title</string>
-    <string name="description_hint">Description</string>
+    <string name="description_hint">Description (optional)</string>
     <string name="question_hint">Word</string>
     <string name="answer_hint">Translation</string>
     <string name="existing_question">This question is already exists</string>

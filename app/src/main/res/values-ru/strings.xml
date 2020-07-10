@@ -4,7 +4,7 @@
     <string name="my_cards_tab">Мои карточки</string>
     <string name="all_tab">Все</string>
     <string name="title_hint">Название</string>
-    <string name="description_hint">Описание</string>
+    <string name="description_hint">Описание (необязательно)</string>
     <string name="question_hint">Слово</string>
     <string name="answer_hint">Перевод</string>
     <string name="existing_question">Слово уже существует</string>

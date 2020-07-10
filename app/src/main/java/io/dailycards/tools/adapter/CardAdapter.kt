@@ -72,7 +72,10 @@ class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
                 else -> R.color.high_accuracy_percent
             })
             viewItem.findViewById<TextView>(R.id.title).text = title
-            viewItem.findViewById<TextView>(R.id.description).text = description
+            viewItem.findViewById<TextView>(R.id.description).run {
+                if (description.isBlank()) visibility = View.GONE
+                else text = description
+            }
             viewItem.findViewById<TextView>(R.id.accuracy).text = "$accuracy%"
             viewItem.findViewById<TextView>(R.id.last_pass).text = lastDate
         }
