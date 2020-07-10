@@ -34,7 +34,9 @@
     </style>
 
     <style name="RecyclerViewItemLayout">
-        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
     </style>
 
     <style name="FAB">
