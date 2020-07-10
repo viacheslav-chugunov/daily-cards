@@ -3,6 +3,7 @@ package io.dailycards.fragment
 import io.dailycards.R
 import io.dailycards.fragment.abs.HomeFragment
 import io.dailycards.tools.adapter.CardAdapter
+import kotlinx.android.synthetic.main.no_daily_text.*
 
 class HomeAllFragment : HomeFragment() {
 

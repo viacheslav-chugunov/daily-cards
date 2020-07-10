@@ -1,5 +1,6 @@
 package io.dailycards.tools.adapter
 
+import android.content.Context
 import android.database.Cursor
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.dailycards.R
 import io.dailycards.tools.db.DB
-import io.dailycards.tools.getCurrentDate
-import java.lang.Exception
+import io.dailycards.tools.inDaily
+import io.dailycards.tools.inStore
 
 class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
     RecyclerView.Adapter<CardAdapter.ViewHolder>() {
@@ -36,32 +37,19 @@ class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
         if (cursor.moveToFirst()) {
             when (mode) {
                 Mode.DAILY -> do {
-                    if (inDaily() and !inStore()) addContent()
+                    if (inDaily(cursor) and !inStore(cursor)) addContent()
                 } while(cursor.moveToNext())
                 Mode.USER_ALL -> do {
-                    if (!inStore()) addContent()
+                    if (!inStore(cursor)) addContent()
                 } while (cursor.moveToNext())
                 Mode.ALL -> do {
                     addContent()
                 } while(cursor.moveToNext())
                 Mode.STORE  -> do {
-                    if (inDaily() and inStore()) addContent()
+                    if (inDaily(cursor) and inStore(cursor)) addContent()
                 } while(cursor.moveToNext())
             }
         }
-    }
-
-    private fun inStore() : Boolean {
-        return cursor.getInt(cursor.getColumnIndex(DB.IN_STORE)) == 1
-    }
-
-    private fun inDaily() : Boolean {
-        return try {
-            val (cD, cM, cY) = getCurrentDate().split(".")
-            val (d, m, y) = cursor.getString(cursor.getColumnIndex(DB.LAST_DATE)).split(".")
-            val isNew = "$cY.$cM.$cD" > "$y.$m.$d" || cursor.getInt(cursor.getColumnIndex(DB.ACCURACY)) <= 85
-            isNew
-        } catch (e: Exception) { true }
     }
 
     private fun addContent() {
@@ -90,24 +78,20 @@ class CardAdapter(private val cursor: Cursor, mode: Mode = Mode.USER_ALL) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.card_item, parent, false))
+    }
 
     override fun getItemCount(): Int {
         return cards.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-        if (cursor.moveToPosition(pos)) {
-            val title = cards[pos].title
-            val description = cards[pos].description
-            val accuracy = cards[pos].accuracy
-            val lastDate = cards[pos].lastDate
-            val id = cards[pos].id
-            holder.run {
-                insertView(title, description, accuracy.toInt(), lastDate)
-                viewItem.setOnClickListener { listener?.onItemClicked(id) }
-            }
+        val card = cards[pos]
+        holder.run {
+            insertView(card.title, card.description, card.accuracy.toInt(), card.lastDate)
+            viewItem.setOnClickListener { listener?.onItemClicked(card.id) }
         }
     }
 }

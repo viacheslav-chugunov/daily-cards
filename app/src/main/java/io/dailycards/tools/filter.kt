@@ -1,7 +1,9 @@
 package io.dailycards.tools
 
 import android.content.Context
+import android.database.Cursor
 import io.dailycards.tools.db.DB
+import java.lang.Exception
 
 fun getPossibleAnswers(rightAnswer: String, allAnswers: List<String>, answersCount: Int = 4) : List<String> {
     val answers = mutableListOf(rightAnswer)
@@ -50,4 +52,55 @@ fun getQuestionsAnswersPair(cardContent: Collection<Pair<String, String>>) : Pai
         answers.add(cardContentItem.second)
     }
     return questions to answers
+}
+
+fun hasDailyCards(context: Context) : Boolean {
+    var hasDailyCards = false
+    DB(context).run {
+        query().run {
+            if (moveToFirst()) {
+                do {
+                    if (inDaily(this) and !inStore(this)) {
+                        hasDailyCards = true
+                        break
+                    }
+                } while (moveToNext())
+            }
+            close()
+        }
+        close()
+    }
+    return hasDailyCards
+}
+
+fun hasDailyStoreCards(context: Context) : Boolean {
+    var hasDailyCards = false
+    DB(context).run {
+        query().run {
+            if (moveToFirst()) {
+                do {
+                    if (inDaily(this) and inStore(this)) {
+                        hasDailyCards = true
+                        break
+                    }
+                } while (moveToNext())
+            }
+            close()
+        }
+        close()
+    }
+    return hasDailyCards
+}
+
+fun inStore(cursor: Cursor) : Boolean {
+    return cursor.getInt(cursor.getColumnIndex(DB.IN_STORE)) == 1
+}
+
+fun inDaily(cursor: Cursor) : Boolean {
+    return try {
+        val (cD, cM, cY) = getCurrentDate().split(".")
+        val (d, m, y) = cursor.getString(cursor.getColumnIndex(DB.LAST_DATE)).split(".")
+        val isNew = "$cY.$cM.$cD" > "$y.$m.$d" || cursor.getInt(cursor.getColumnIndex(DB.ACCURACY)) <= 85
+        isNew
+    } catch (e: Exception) { true }
 }

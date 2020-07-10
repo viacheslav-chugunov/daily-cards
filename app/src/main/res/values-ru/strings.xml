@@ -23,4 +23,5 @@
     <string name="store_tab">Хранилище</string>
     <string name="card_creation">Создание новой карточки</string>
     <string name="card_updating">Обновление карточки</string>
+    <string name="no_cards">Нет карточек на сегодня</string>
 </resources>

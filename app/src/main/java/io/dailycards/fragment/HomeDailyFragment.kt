@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import io.dailycards.R
 import io.dailycards.fragment.abs.HomeFragment
 import io.dailycards.tools.adapter.CardAdapter
+import io.dailycards.tools.hasDailyCards
 import kotlinx.android.synthetic.main.fragment_home_daily.*
+import kotlinx.android.synthetic.main.no_daily_text.*
 
 class HomeDailyFragment : HomeFragment() {
 
@@ -32,8 +34,12 @@ class HomeDailyFragment : HomeFragment() {
     }
 
     override fun setupRecyclerView() {
-        val listener = this
-        (childFragmentManager.findFragmentById(R.id.home_recycler_view) as RecyclerViewFragment)
-            .setAdapter(CardAdapter(cursor, CardAdapter.Mode.DAILY).apply { this.listener = listener })
+        if (hasDailyCards(context!!)) {
+            val listener = this
+            (childFragmentManager.findFragmentById(R.id.home_recycler_view) as RecyclerViewFragment)
+                .setAdapter(CardAdapter(cursor, CardAdapter.Mode.DAILY).apply { this.listener = listener })
+        } else {
+            setNoDailyCardsDescription()
+        }
     }
 }

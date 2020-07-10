@@ -13,6 +13,7 @@ import io.dailycards.activity.CardActivity
 import io.dailycards.tools.Extra
 import io.dailycards.tools.adapter.CardAdapter
 import io.dailycards.tools.db.DB
+import kotlinx.android.synthetic.main.no_daily_text.*
 
 abstract class HomeFragment : Fragment(), CardAdapter.Listener {
     private lateinit var db: DB
@@ -46,5 +47,9 @@ abstract class HomeFragment : Fragment(), CardAdapter.Listener {
             putExtra(Extra.ID, id)
         }
         startActivity(intent)
+    }
+
+    protected fun setNoDailyCardsDescription() {
+        no_daily.text = context!!.getString(R.string.no_cards)
     }
 }

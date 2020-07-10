@@ -22,4 +22,5 @@
     <string name="store_tab">Store</string>
     <string name="card_creation">New card creation</string>
     <string name="card_updating">Card updating</string>
+    <string name="no_cards">No cards for today</string>
 </resources>

@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context=".fragment.HomeDailyFragment">
 
+    <include
+        layout="@layout/no_daily_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <fragment
         android:id="@+id/home_recycler_view"
         android:name="io.dailycards.fragment.RecyclerViewFragment"
