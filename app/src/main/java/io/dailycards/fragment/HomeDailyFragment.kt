@@ -32,9 +32,8 @@ class HomeDailyFragment : HomeFragment() {
     }
 
     override fun setupRecyclerView() {
-        val adapter = CardAdapter(cursor, CardAdapter.Mode.DAILY)
-        adapter.listener = this
+        val listener = this
         (childFragmentManager.findFragmentById(R.id.home_recycler_view) as RecyclerViewFragment)
-            .setAdapter(adapter)
+            .setAdapter(CardAdapter(cursor, CardAdapter.Mode.DAILY).apply { this.listener = listener })
     }
 }

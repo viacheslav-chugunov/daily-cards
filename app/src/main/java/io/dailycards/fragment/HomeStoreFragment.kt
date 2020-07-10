@@ -7,9 +7,8 @@ import io.dailycards.tools.adapter.CardAdapter
 class HomeStoreFragment : HomeFragment() {
 
     override fun setupRecyclerView() {
-        val adapter = CardAdapter(cursor, CardAdapter.Mode.STORE)
-        adapter.listener = this
+        val listener = this
         (childFragmentManager.findFragmentById(R.id.home_recycler_view) as RecyclerViewFragment)
-            .setAdapter(adapter)
+            .setAdapter(CardAdapter(cursor, CardAdapter.Mode.STORE).apply { this.listener = listener })
     }
 }
