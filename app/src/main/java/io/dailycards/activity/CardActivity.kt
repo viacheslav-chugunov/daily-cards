@@ -28,7 +28,8 @@ open class CardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card)
         id = intent.extras?.getInt(Extra.ID) ?: -1
         Query(this).run {
-            setSupportActionBar(toolbar.apply { title = getStringValueFromColumn(id, DB.TITLE) })
+            val cardTitle = getStringValueFromColumn(id, DB.TITLE)
+            setSupportActionBar(toolbar.apply { title = cardTitle })
             close()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
