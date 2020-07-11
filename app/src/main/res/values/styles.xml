@@ -28,6 +28,11 @@
         <item name="android:textColor">@color/text_color</item>
     </style>
 
+    <style name="SubEditText" parent="BaseMargin">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
     <style name="BaseEditText" parent="BaseMargin">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/text_color</item>

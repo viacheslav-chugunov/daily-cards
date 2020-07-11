@@ -8,35 +8,39 @@
     tools:context=".fragment.EditionFragment" >
 
     <EditText
+        android:maxLength="20"
         android:id="@+id/edition_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="text|textCapSentences"
         android:hint="@string/title_hint"
         style="@style/BaseEditText" />
 
     <EditText
+        android:maxLength="100"
         android:id="@+id/edition_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textCapSentences"
         android:layout_marginBottom="16dp"
         android:hint="@string/description_hint"
-        style="@style/BaseEditText" />
+        style="@style/SubEditText" />
 
     <EditText
+        android:maxLength="20"
         android:id="@+id/edition_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="text|textCapSentences"
         android:hint="@string/question_hint"
         style="@style/BaseEditText" />
 
     <EditText
+        android:maxLength="20"
         android:id="@+id/edition_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="text|textCapSentences"
         android:layout_marginBottom="8dp"
         android:hint="@string/answer_hint"
         style="@style/BaseEditText" />
