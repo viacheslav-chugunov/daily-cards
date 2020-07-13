@@ -105,7 +105,7 @@ class CardAdapter(private val cursor: Cursor, private val mode: Mode = Mode.USER
         val card = cards[pos]
         holder.run {
             insertView(card.title, card.description, card.accuracy.toInt(), card.lastDate)
-            if (hasAttention(cursor.apply { moveToPosition(pos) } )) setAttention()
+            if (hasAttention(card.lastDate)) setAttention()
             viewItem.setOnClickListener { listener?.onItemClicked(card.id) }
         }
     }

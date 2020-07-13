@@ -97,13 +97,14 @@ fun inStore(cursor: Cursor) : Boolean {
 }
 
 fun inDaily(cursor: Cursor) : Boolean {
-    return if (hasAttention(cursor)) true else cursor.getInt(cursor.getColumnIndex(DB.ACCURACY)) <= 85
+    return if (hasAttention(cursor.getString(cursor.getColumnIndex(DB.LAST_DATE)))) true
+    else cursor.getInt(cursor.getColumnIndex(DB.ACCURACY)) <= 85
 }
 
-fun hasAttention(cursor: Cursor) : Boolean {
+fun hasAttention(lastDate: String) : Boolean {
     return try {
         val (cD, cM, cY) = getCurrentDate().split(".")
-        val (d, m, y) = cursor.getString(cursor.getColumnIndex(DB.LAST_DATE)).split(".")
+        val (d, m, y) = lastDate.split(".")
         "$cY.$cM.$cD" > "$y.$m.$d"
     } catch (e: Exception) { true }
 }
