@@ -78,6 +78,11 @@ class DB(val context: Context) {
         return false
     }
 
+    fun insertToStore(title: String, description: String, cardContent: Collection<Pair<String, String>>,
+                      lastDate: String = context.getString(R.string.never_passed), accuracy: Int = 0) : Boolean {
+        return insert(title, description, cardContent, lastDate, accuracy, true)
+    }
+
     fun contains(dbCol: String, value: String) : Boolean {
         query(arrayOf(dbCol)).apply {
             if (moveToFirst()) {

@@ -38,4 +38,5 @@
     <string name="info_answer_6">Reverse mode - a special opportunity that changes places questions and answers. If the card passes in reverse mode, it will be counted as passed in normal mode.</string>
     <string name="info_question_7">What if there\'s an error? How do I contact the developer?</string>
     <string name="info_answer_7">Email: famethekeker@gmail.com\nTelegram: t.me/pudjer</string>
+    <string name="system_set">System set</string>
 </resources>

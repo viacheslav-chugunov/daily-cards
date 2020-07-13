@@ -3,7 +3,8 @@ package io.dailycards.tools.db
 import io.dailycards.R
 
 class Store(private val db: DB) {
-    private val storePrefix = "[%s] ".format(db.context.getString(R.string.store_tab))
+    private val prefix = "[%s] ".format(db.context.getString(R.string.store_tab))
+    private val description = db.context.getString(R.string.system_set)
 
     fun init() {
         card1(); card2(); card3(); card4()
@@ -41,12 +42,7 @@ class Store(private val db: DB) {
             "Stretching" to "Растяжка",
             "Somersault" to "Кувырок"
         )
-        db.insert(
-            storePrefix + "Спорт",
-            "Системный набор",
-            cardContent,
-            store = true
-        )
+        db.insertToStore(prefix + "Спорт", description, cardContent)
     }
 
     private fun card2() {
@@ -101,12 +97,7 @@ class Store(private val db: DB) {
             "Cheesecakes" to "Сырники",
             "Watermelon" to "Арбуз"
         )
-        db.insert(
-            storePrefix + "Еда",
-            "Системный набор",
-            cardContent,
-            store = true
-        )
+        db.insertToStore(prefix + "Еда", description, cardContent)
     }
 
     private fun card3() {
@@ -130,12 +121,7 @@ class Store(private val db: DB) {
             "Employment" to "Занятость",
             "Grief" to "Печаль"
         )
-        db.insert(
-            storePrefix + "Офис",
-            "Системный набор",
-            cardContent,
-            store = true
-        )
+        db.insertToStore(prefix + "Офис", description, cardContent)
     }
 
     private fun card4() {
@@ -170,11 +156,33 @@ class Store(private val db: DB) {
             "Highway" to "Шоссе",
             "Vessel" to "Судно"
         )
-        db.insert(
-            storePrefix + "Туризм",
-            "Системный набор",
-            cardContent,
-            store = true
+        db.insertToStore(prefix + "Туризм", description, cardContent)
+    }
+
+    private fun card5() {
+        val cardContent = listOf(
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to "",
+            "" to ""
         )
+        db.insertToStore(prefix + "", description, cardContent)
     }
 }
