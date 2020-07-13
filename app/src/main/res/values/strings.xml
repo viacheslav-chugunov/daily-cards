@@ -33,9 +33,9 @@
     <string name="info_question_4">What does the exclamation point on the card mean?</string>
     <string name="info_answer_4">This means that this card has not yet been passed today.</string>
     <string name="info_question_5">Missing card after passing. Where did it go?</string>
-    <string name="info_answer_5">Cards that were passed for an excellent result (more than 85 percent of correct answers) today disappear from the My Cards or Storage tabs until the next day. In case there is a desire to pass the card again, it can be found in the "All" tab.</string>
+    <string name="info_answer_5">Cards that were passed for an excellent result (more than 85 percent of correct answers) today disappear from the "My Cards" or "Store" tabs until the next day. In case there is a desire to pass the card again, it can be found in the "All" tab.</string>
     <string name="info_question_6">What does the "reverse mode" of my choice in the card mean?</string>
     <string name="info_answer_6">Reverse mode - a special opportunity that changes places questions and answers. If the card passes in reverse mode, it will be counted as passed in normal mode.</string>
-    <string name="info_question_7">What if there is an error? How do I contact the developer?</string>
+    <string name="info_question_7">What if there\'s an error? How do I contact the developer?</string>
     <string name="info_answer_7">Email: famethekeker@gmail.com\nTelegram: t.me/pudjer</string>
 </resources>
