@@ -1,78 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragment.EditionFragment" >
+    tools:context=".fragment.EditionFragment">
 
-    <EditText
-        android:maxLength="20"
-        android:id="@+id/edition_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text|textCapSentences"
-        android:hint="@string/title_hint"
-        style="@style/BaseEditText" />
-
-    <EditText
-        android:maxLength="100"
-        android:id="@+id/edition_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine|textCapSentences"
-        android:layout_marginBottom="16dp"
-        android:hint="@string/description_hint"
-        style="@style/SubEditText" />
-
-    <EditText
-        android:maxLength="20"
-        android:id="@+id/edition_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text|textCapSentences"
-        android:hint="@string/question_hint"
-        style="@style/BaseEditText" />
-
-    <EditText
-        android:maxLength="20"
-        android:id="@+id/edition_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text|textCapSentences"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/answer_hint"
-        style="@style/BaseEditText" />
-
-    <fragment
-        android:id="@+id/edition_recycler_view"
-        android:name="io.dailycards.fragment.RecyclerViewFragment"
-        android:layout_weight="1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/edition_done_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edition_title"
+                style="@style/BaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_hint"
+                android:inputType="text|textCapSentences"
+                android:maxLength="20" />
+
+            <EditText
+                android:id="@+id/edition_description"
+                style="@style/SubEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/description_hint"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLength="100" />
+
+            <EditText
+                android:id="@+id/edition_question"
+                style="@style/BaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/question_hint"
+                android:inputType="text|textCapSentences"
+                android:maxLength="20" />
+
+            <EditText
+                android:id="@+id/edition_answer"
+                style="@style/BaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/answer_hint"
+                android:inputType="text|textCapSentences"
+                android:maxLength="20" />
+
+            <fragment
+                android:id="@+id/edition_recycler_view"
+                android:name="io.dailycards.fragment.RecyclerViewFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/edition_done_button"
+        style="@style/VerticalImageButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/baseline_done_black_18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edition_append_button"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageButton
-            android:id="@+id/edition_done_button"
-            style="@style/VerticalImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_done_black_18dp" />
+    <ImageButton
+        android:id="@+id/edition_append_button"
+        style="@style/VerticalImageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:src="@drawable/baseline_add_black_18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edition_done_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <ImageButton
-            android:id="@+id/edition_append_button"
-            style="@style/VerticalImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_add_black_18dp" />
-    </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
