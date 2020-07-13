@@ -23,4 +23,19 @@
     <string name="card_creation">New card creation</string>
     <string name="card_updating">Card updating</string>
     <string name="no_cards">No cards for today</string>
+    <string name="questions_and_answers">Questions and answers</string>
+    <string name="info_question_1">What is the essence of the application?</string>
+    <string name="info_answer_1">Daily Cards is a free program designed to study foreign words. The point is that the user passes the created or system cards every day, thereby remembering new foreign words. If the user passes the card for a bad result, it must be passed again, otherwise the card is considered passed.</string>
+    <string name="info_question_2">What is a card in the Daily Cards?</string>
+    <string name="info_answer_2">A card is a list of word-translation pairs that have been compiled by the user or the system.</string>
+    <string name="info_question_3">What is the store?</string>
+    <string name="info_answer_3">This is a list of daily card sets that are initially stored in the program (system set). Initially, system kits are intended for Russian-speaking users learning English.</string>
+    <string name="info_question_4">What does the exclamation point on the card mean?</string>
+    <string name="info_answer_4">This means that this card has not yet been passed today.</string>
+    <string name="info_question_5">Missing card after passing. Where did it go?</string>
+    <string name="info_answer_5">Cards that were passed for an excellent result (more than 85 percent of correct answers) today disappear from the My Cards or Storage tabs until the next day. In case there is a desire to pass the card again, it can be found in the "All" tab.</string>
+    <string name="info_question_6">What does the "reverse mode" of my choice in the card mean?</string>
+    <string name="info_answer_6">Reverse mode - a special opportunity that changes places questions and answers. If the card passes in reverse mode, it will be counted as passed in normal mode.</string>
+    <string name="info_question_7">What if there is an error? How do I contact the developer?</string>
+    <string name="info_answer_7">Email: famethekeker@gmail.com\nTelegram: t.me/pudjer</string>
 </resources>

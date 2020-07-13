@@ -3,6 +3,8 @@ package io.dailycards.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import io.dailycards.tools.adapter.HomeSectionsAdapter
 import io.dailycards.R
 import io.dailycards.fragment.HomeDailyFragment
@@ -23,5 +25,20 @@ class HomeActivity : AppCompatActivity(), HomeDailyFragment.Listener {
 
     override fun onClickCreationFAB() {
         startActivity(Intent(this, CreationActivity::class.java))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.questions_and_answers -> {
+                startActivity(Intent(this, QuestionsAndAnswersActivity::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
