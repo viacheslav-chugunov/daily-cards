@@ -1,5 +1,6 @@
 package io.dailycards.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.dailycards.R
@@ -21,5 +22,12 @@ class ResultActivity : AppCompatActivity() {
             isReversed = intent.extras?.getBoolean(Extra.REVERSED)!!
             rightAnswersCount = intent.extras?.getInt(Extra.RIGHT_ANSWERS_COUNT)!!
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, HomeActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
     }
 }

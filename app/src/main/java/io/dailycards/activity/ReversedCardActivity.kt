@@ -29,4 +29,11 @@ class ReversedCardActivity : CardActivity() {
             putExtra(Extra.ID, id)
         })
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, HomeActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
+    }
 }
